@@ -4,8 +4,10 @@ It contains some corrections made by the community.
 
 It it written in a text based mardown format that is compatible with ASCIIDOCTOR-PDF 
 
-To create the PDF, you would install RUBY and then use GEM INSTALL ASCIIDOCTOR-PDF --pre and then GEM INSTALL ROUGE
+To create the PDF, you would install RUBY and then use `GEM INSTALL ASCIIDOCTOR-PDF --pre` and then `GEM INSTALL ROUGE`
 
 There is a WINDOWS BATCH file `makeit.bat` and a Linux shell script file `buildit` that will automatically create the PDF
+
+Note: You can play around with the formatting and fonts used by modifyinh the YAML file in the `resources` folder.
 
 Pete 
