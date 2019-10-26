@@ -2556,7 +2556,7 @@ The first example would simply clear the screen to the background color. The sec
 
 The `HLINE` statement is used to draw a line, box or rectangle on the graphics screen. The _x1,y1_ coordinates are used to specify the starting point on the screen and the _x2,y2_ coordinates are used to specify ending point for the line. The line is then drawn by the computer between these two points. 
 
-The _a_ argument is used to tell the computer whether to draw the line using the pre-specified foreground color (PSET), or to use the pre-specified background color (PRESET). The `PRESET` function may be compared to "erasing" rather than drawing on the screen, since the background color makes the line invisible.
+The _a_ argument is used to tell the computer whether to draw the line using the pre-specified foreground color `PSET`, or to use the pre-specified background color `PRESET` . The `PRESET` function may be compared to "erasing" rather than drawing on the screen, since the background color makes the line invisible.
 
 The _b_ argument is an option that allows you to draw a "Box" or rectangle without having to draw four separate lines. All you have to do is specify two of the opposing corners for the square in _x1,y1_ and _x2,y2_, and add `,B` to the statement. You also have the option to add an _F_ to the optional argument `,B` to produce `,BF`. This will let you "fill" the box with the foreground color to produce a solid box.
 
@@ -2574,7 +2574,7 @@ The `HPAINT` statement allows you to "paint" any shape with any available color.
 
 _Example_
 
-[source, bbsbasic]
+[source, bbcbasic]
 ----
 10 HMODE 3,1
 20 HCLS
@@ -2700,7 +2700,8 @@ The first example moves the draw position to the center of the screen 128,96 and
 
 ==== HGET & HPUT
 
-*Syntax* : `HGET` _(xl,yl)-(x2,y2), destination, G_  &  `HPUT` _(xl,yl)-(x2,y2 ), source, option_
+*Syntax* : `HGET` _(xl,yl)-(x2,y2), destination, G_  +
+  `HPUT` _(xl,yl)-(x2,y2 ), source, option_
 
 The `HGET` and `HPUT` statements are used to "GET" a rectangular area which contains a graphics display, store it in a buffer, then "PUT" the buffer back on the screen at a later time. The _xl,yl_ and _x2,y2_ coordinates are used to tell the computer where the upper left corner and lower right corner of the rectangular graphics area is located on the screen to `HGET` or `HPUT`. 
 
@@ -2748,7 +2749,7 @@ The `BORDER` command allows you to select a pallette number 0-15 for use as the 
 
 Example:: `BORDER 14`
 
-==== pallette
+==== PALLETTE
 
 *Syntax* : `PALETTE` _reg#, color_ +
 `PALETTE RGB` +
