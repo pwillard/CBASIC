@@ -1,0 +1,1 @@
+asciidoctor-pdf -a pdf-style=theme/custom.yml -a pdf-fontsdir=fonts cbasic3.asc
