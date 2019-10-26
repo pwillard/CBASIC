@@ -10,4 +10,6 @@ There is a WINDOWS BATCH file `makeit.bat` and a Linux shell script file `buildi
 
 Note: You can play around with the formatting and fonts used by modifying the YAML file in the `resources` folder.
 
+Also, At this point... all the text is there... but there are some spelling a layout issues that need tweaking.
+
 Pete 
