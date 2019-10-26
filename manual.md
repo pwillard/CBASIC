@@ -14,7 +14,7 @@ COPYRIGHT (C) 1987  BY WILLIAM E. VERGONA
 
 ALL RIGHTS RESERVED 
 
-== LIMITED LICENSE TO USERS 
+== Limited License To Users 
 
 
 Cer-Comp grants you, the owner and original purchaser of 
@@ -38,7 +38,7 @@ satisfaction of Cer-Comp. Cer-Comp would, of course appreciate
 the opportunity to publish any program you develope which 
 incorporates the {CB} compiler. 
 
-=== DISCLAIMER 
+=== Disclaimer 
 
 A great deal of time and effort was used in the creation of 
 this program, and great care was taken to insure that this program 
@@ -272,8 +272,6 @@ Example :: `LIST 100-300` kbd:[ENTER]
 
 ==== RENUMBER  
 
-
-
 Causes the Basic file to be renumbered.  If no increment is specified a value of 10 is used. If a starting line # is not 
 specified the increment value is used. If the lines exceed 9999 before the end of file, the increment is automatically decreased. The re-numbering is repeated until a workable value is reached.
 
@@ -386,7 +384,7 @@ Example :: `MOVE 1100-1345 100` kbd:[ENTER]
 
 _This would move the lines from 1100 thru 1345 to the next line following line 100._
 
-==== AUTOMATIC LINE NUMBERING
+==== Automatic Line Numbering
 
 *Syntax*: `AUTO` _[ 1 digit increment value ] [ line # ]_
 
@@ -845,7 +843,7 @@ bytes of RAM for run-time storage.
 The five legal operators for arithmetic are:
 
 [width="80%",align="center"]
-[cols="25,75"]
+[cols="10,90"]
 [frame=none,grid=none]
 |===
 |+          |Add
@@ -862,7 +860,7 @@ There are also four boolean operators:
 [frame=none,grid=none]
 |===
 |& or AND       |Logical AND
-|{bar} or OR    |Logical OR   
+|! or OR        |Logical OR   
 |%              |Exclusive OR
 |#              |Logical NOT aka Complement or Invert (UNARY)
 |===
@@ -955,6 +953,7 @@ Division attempted with a divisor of zero will also produce
 an error which is detected at run-time with the `ON ERROR GOTO`.
 The Remainder of a division may be obtained by the `OVEREM`
 function: `A=OVEREM`.
+
 
 === Multiple Precision Arithmetic
 Sometimes it is necessary to deal with numbers larger than
@@ -1447,23 +1446,23 @@ _Example:_
 
 === Assignment Statements
 
-==== LET (numeric)
+==== LET (Numeric)
 
-*Syntax*: `LET` _(variable = expression *or* variable=expression)_
+*Syntax*: `LET` _(variable=numericexpression)_
 
 Used for arithmetic assignments.  The expression is evaulated and the result is stored in the variable. 
 
 [TIP]
 Use of the keyword `LET` is optional.
 
-==== LET (string) 
+==== LET (String)
 
-*Syntax*: `LET` _(strvar = strexpr *or* strvar = strexpr)_
+*Syntax*: `LET` _(variable=stringexpression)_
 
 The string expression is evaluated and the result assigned to the string variable specified. If the result of the evaluation produces a result with a longer length than the size of the result variable, the first N characters only are stored where N is the length of the resulting variable.
 
 [TIP]
-Use of the keyword LET is optional.
+Use of the keyword `LET` is optional.
 
 ==== POKE & DPOKE
 
@@ -1792,7 +1791,7 @@ The `IRQ=` statement is used to selectively enable or disable *GIME* interrupt c
 [WARNING]
 These values are *OR'd* together and stored in location *$FF92 IRQ* or *$FF92 FIRQ*
 
-If you wanted to enable the *Keyboard* and *Timer* interrupts you would use a value of 34 (2 for the `KBD` + 32 for the `Timer`). If you are working with more than one interrupt, you should keep a variable with the value of all interrupt conditions and use bit operators like *AND (&)* and *OR (!)* to set and reset the bits to be enabled.
+If you wanted to enable the *Keyboard* and *Timer* interrupts you would use a value of 34 (2 for the `KBD` + 32 for the `TIMER`). If you are working with more than one interrupt, you should keep a variable with the value of all interrupt conditions and use bit operators like *AND (&)* and *OR (!)* to set and reset the bits to be enabled.
 
 _Example:_
 
@@ -1891,7 +1890,7 @@ The `RAM64K` statement for {cb} allows you to select any 32K bank of memory to b
 
 You can still use the upper portion of memory $8OOO-$FDFF for variable storage etc, but with a twist. You must tell {cb} what the starting page# is for the 32K bank of memory you want to use in the upper 32K area to replace the Basic ROM code. This means that you can select any 32K block of ram available in the machine to be access as the upper 32K, which gives you about 420K of storage space if desired. 
 
-The _page#_ specified can be a number or variable in the range of 0-59 to select the starting 8K page (60-63 is the normal 64K being used). For example, if you wanted to select the *Extended Hi-Res Graphics* pages (320/640 * 192) which reside in memory from $60000-$67FFF (32K total) you would use a value of 48 decimal or $30 hex to start at $60000 (8 blocks of 8K for each 64K). 
+The _page#_ specified can be a number or variable in the range of 0-59 to select the starting 8K page (60-63 is the normal 64K being used). For example, if you wanted to select the *Extended Hi-Res Graphics* pages (320/640 * 192) which reside in memory from $60000-$67FFF (32K total) you would use a value of 48 decimal or *$30* hex to start at *$60000* (8 blocks of 8K for each 64K). 
 
 [TIP]
 If you want to deselect the upper 32K of memory to the normal ROM image use, `RAM64K 60`.
