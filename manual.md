@@ -688,7 +688,7 @@ Example :: `PR CBASIC BIOIA:l` +
 _This command string would enable output to the printer `PR` and then call the `CBASIC` compiler, the program would be compiled with the object code file being written to a file labeled "BIOIA" on drive #1, the extension default would be `.BIN`._
 
 <<<
-== THE {CB} program STRUCTURE
+== The {cb} Program Structure
 
 A {CB} program consists of a series of "source lines". A 
 source l ine consists of a line number followed by one or more 
@@ -937,7 +937,7 @@ Returns the absolute memory address for a variable.
 ==== OVEREM
 Returns the overflow results of a multiply or the remainder of a divide function. Valid immediately after a multiply or divide only.
 
-=== ARITHMETIC ERRORS
+=== Arithmetic Errors
 Arithmetic operations may produce several types of errors
 which may be detected and processed. Addition and Subtraction may
 result in a carry or borrow condition. Either one will result in
@@ -956,7 +956,7 @@ an error which is detected at run-time with the `ON ERROR GOTO`.
 The Remainder of a division may be obtained by the `OVEREM`
 function: `A=OVEREM`.
 
-=== MULTIPLE PRECISION ARITHMETIC
+=== Multiple Precision Arithmetic
 Sometimes it is necessary to deal with numbers larger than
 the basic 2 byte {cb} representation. {cb} allows
 addition and subtraction of numbers of multiples of 16 bits by
@@ -3797,7 +3797,7 @@ _Examples_
 | `PRINT CHR$(27),"64"` kbd:[ENTER]   | Set width to 64, 192 Res.
 |===
 
-==== Clearing Special Functions
+=== Clearing Special Functions
 
 There is a special function code used to reset most of the special functions in the HI-Res package. The functions which are reset to the default conditions are:
 
@@ -3852,7 +3852,7 @@ Additional functions have been added to allow more flexibility in using Hi-Res.
 [NOTE]
 These remain in effect until turned off or switched by their counterpart code.
 
-==== Effects On Basic Screen Commands
+=== Effects On Basic Screen Commands
 
 This package was designed to be as compatible and convenient to use as possible, so normal operations with {cb} programs would be affected as little as possible. Since some Basic programs use commands that affect the screen display, we have tried to make them as compatible as possible with the new screen format. Unfortunately, this may not be 100% compatible but should be close enough so the programs will still run without any major problems. If problems do arise, you can always switch back to the standard screen format for those functions, and then back to the Hi-Res format with a simple function command.
 
