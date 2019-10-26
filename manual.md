@@ -146,7 +146,7 @@ generate the same characters as the arrow & shift keys did previously. The reaso
 | kbd:[CLEAR,4] ^| `]`     ^| $5D |kbd:[SHIFT,{right}]
 | kbd:[CLEAR,5] ^| `^`     ^| $5E |kbd:[{up}]
 | kbd:[CLEAR,6] ^| `_`     ^| $5F |kbd:[SHIFT,{up}]
-| kbd:[CLEAR,7] ^| `REM`     ^| $60 |*n/a
+| kbd:[CLEAR,7] ^| `'`     ^| $60 |*n/a
 | kbd:[CLEAR,8] ^| `{`     ^| $7B |*n/a
 | kbd:[CLEAR,9] ^| `}`     ^| $7D |*n/a
 |===
@@ -190,7 +190,7 @@ disk and ship it back to you within 1 working day.
 === Ramdisk & 512k 
 
 If your COC0-3 has 512K of memory installed, {CB} will 
-automatically install 2 RAMDISKREMs as drives 2 & 3. These RAMDISKREMs 
+automatically install 2 RAMDISK's as drives 2 & 3. These RAMDISK's 
 can be used the same as normal disk drives only they are much 
 faster. You can use then to: save temporary files or Compile 
 programs to just like a normal disk drive. The RAMDISK storage 
@@ -279,7 +279,7 @@ specified the increment value is used. If the lines exceed 9999 before the end o
 
 Example :: `RENUMBER 5 100` kbd:[ENTER] 
 
-_This will Re-sequence the line numbers in the file and increment each line number by REM5REM, beginning with REM100REM._
+_This will Re-sequence the line numbers in the file and increment each line number by 5, beginning with 100._
 
 ==== DELETE 
 
@@ -300,18 +300,18 @@ Searches for all occurrences of the string between the delimiters kbd:[SHIFT,@].
 
 Example :: `SEARCH 100-199 \TEST\` 
 
-_List all the lines containing the string REMTEXTREM between lines 100 thru 199._
+_List all the lines containing the string 'TEXT' between lines 100 thru 199._
 
 ==== REPLACE (RP)
 
 *Syntax* : `RPLACE` _[line #](-)[line #] \[string)\[string]\_
 
 This function will replace all occurrences of the first string between delimiters kbd:[SHIFT,@] with the second string. If 
-the optional line #REMs are not specified then the entire file will be used.  If only the starting line # is specified then the replace will be from the line # to  the end of file. If both start & end line #REMs are specified then only the lines including the range be used. 
+the optional line #'s are not specified then the entire file will be used.  If only the starting line # is specified then the replace will be from the line # to  the end of file. If both start & end line #'s are specified then only the lines including the range be used. 
 
 Example :: `RPLACE 100-999 \TEST\TESTER\` 
 
-_This would tell the editor to replace all occurrences of REMTESTREM between lines 100 and 999 with REMTESTERREM._
+_This would tell the editor to replace all occurrences of 'TEST' between lines 100 and 999 with 'TESTER'._
 
 
 ==== LINE EDIT 
@@ -365,7 +365,7 @@ _Begin automatic line editing starting at line 100._
 
 *Syntax* : `COPY` _(from line#)-(to line#) (new location line#)_
 
-The copy function allows portion of the current text buffer  to be copied to another portion of the file. The lines included in the specifications REMfromREM and REMtoREM are copied to the new location line following the destination line. 
+The copy function allows portion of the current text buffer  to be copied to another portion of the file. The lines included in the specifications "from" and "to" are copied to the new location line following the destination line. 
 
 The portion of the file copied is left intact and the file is automatically renumbered upon completion of the copy. 
 
@@ -399,7 +399,7 @@ be typed after each line is entered.
 
 Example : `AUTO 100` kbd:[ENTER]
 
-_Enter auto line typing beginning with line REM100REM with a default increment value of REM10REM._
+_Enter auto line typing beginning with line "100" with a default increment value of "10"._
 
 ==== SIZE 
 
@@ -536,7 +536,7 @@ The numbers in the parenthesis represent the number of
 vertical scan lines used on t he display. The 225 mode gives an 
 extra pixel width between lines so that the descender on 
 characters will not appear to touch the tops of the letters on the 
-line below. If your TV or Monitor canREMt handle the extra lines, 
+line below. If your TV or Monitor can't handle the extra lines, 
 select one of the 192 line modes. 
 
 Example : +
@@ -590,8 +590,8 @@ to disk. If no disk drive/id is entered a default drive of "0" is
 assumed. The file extension is assumed to be a *CBA* file if not 
 specified. The entire file is saved from the text buffer. If the 
 output file is already in use from a previous file that was larger 
-than the text buffer an error message of *REMOUTPUT FILE ALREADY IN 
-USEREM* will be displayed. 
+than the text buffer an error message of *"OUTPUT FILE ALREADY IN 
+USER"* will be displayed. 
 
 Example: +
 `SAVE BIOIA.ASM` +
@@ -732,10 +732,10 @@ Basic programs.
 === Numbers 
 
 [.lead]
-{CB}REMs numeric data type is internally represented as 16
-bit twoREMs compliment integers (2 bytes). This permits an
+{CB}'s numeric data type is internally represented as 16
+bit two's compliment integers (2 bytes). This permits an
 equivalent decimal number range from +32767 to -32768. This data
-representation is quite natural to the 6809REMs machine instruction
+representation is quite natural to the 6809's machine instruction
 set which allows {CB} to produce extremely fast and compact
 machine code.
 
@@ -773,7 +773,7 @@ Examples of ILLEGAL numbers:
 |100000     |Number too large
 |+20        |Plus sign not allowed, assumed if not minus
 | -1 $FFFF #0 65635 &HFFFF |Because binary numbers are represented in either unsigned or
-2REMs compliment form, as well as the differences between hex and
+2's compliment form, as well as the differences between hex and
 decimal notation of identical numbers, all these number
 constants have the same binary value.
 |===
@@ -792,7 +792,7 @@ are legal variable names:
 [cols="25,75"]
 [frame=none,grid=none]
 |===
-|`x`      | Signle Letter Lower Case 
+|`x`      | Single Letter Lower Case 
 |`N`      | Single Letter Capitalized
 |`xx`     | Letters Lower Case
 |`ZX`     | Letters Capitalized
@@ -816,7 +816,7 @@ speed.
 
 Two dimensional numeric arrays may be defined and used for
 a 1 dimensional access which is much faster than a 2 dimension
-access. If you had the array A(30,100), you could access it as if
+access. If you had the array `A(30,100)`, you could access it as if
 it was `A(3000)`.
 
 References to two dimensional arrays with less than 255
@@ -828,7 +828,7 @@ will have a faster access than a two dimensional array with over
 255 elements or rows.
 
 Examples of legal subscripts::  `N(M)   A(l200)   Z2(CX)   Z4(N,MZ)` + 
-    `H(N*(A/B),X+2) + R4(N*AZ+K) ` 
+    `H(N*(A/B),X+2) + R4(N*AZ+K)` 
 
 [TIP]
 {cb} considers a simple variable with the same name as an
@@ -941,14 +941,14 @@ Returns the overflow results of a multiply or the remainder of a divide function
 Arithmetic operations may produce several types of errors
 which may be detected and processed. Addition and Subtraction may
 result in a carry or borrow condition. Either one will result in
-the Carry bit of the MPUREMs condition code register being set. The
+the Carry bit of the MPU's condition code register being set. The
 `ON OVR` and `ON NOVR` statements may be used to detect this
 condition. This also permits addition and subtraction in larger
 representation than 16 bits. _(See <<MULTIPLE PRECISION ARITHMETIC>> )_
 
 Multiplication of two 16 bit numbers may result in a product
 up to four bytes long. {cb} will detect this error _(See <<ON
-ERROR GOTO>> )_ and preserve the high order 16 bits of the correct 2REMs
+ERROR GOTO>> )_ and preserve the high order 16 bits of the correct 2's
 compliment result which can be accessed by the `OVEREM` function.
 
 Division attempted with a divisor of zero will also produce
@@ -961,8 +961,8 @@ Sometimes it is necessary to deal with numbers larger than
 the basic 2 byte {cb} representation. {cb} allows
 addition and subtraction of numbers of multiples of 16 bits by
 means of the `ON OVR GOTO` an `ON NOVR GOTO` statements. `OVR` means
-REMOVERFLOWREM (carry or borrow as represented by the MPU C bit) and
-`NOVR` means REMNOT OVERFLOWREM.
+"OVERFLOW" (carry or borrow as represented by the MPU C bit) and
+`NOVR` means "NOT OVERFLOW".
 
 The example below shows addition and subtraction of 32 bit
 integers using the convention that two variables are used to store
@@ -1041,7 +1041,7 @@ subroutines in certain memory addresses that have been
 assigned {cb} variable names so the {cb} program may
 easily manipulate them.
 
-3) Use {cb}REMS string processing capabilities to full
+3) Use {cb}'S string processing capabilities to full
 advantage in handling I/O and storage of numeric values.
 Floating point numbers can be passed as ASCII strings.
 
@@ -1303,7 +1303,7 @@ This will cause instructions generated for any following BASIC statements to beg
 An important function of the `BASE` statement is to allow specific memory assignments for specific or special variable names. Some of the reasons for this application are as follows:
 
 1. To take advantage of the normally unused upper 32K of RAM for large arrays and variable storage. 
-2. To assign specific variable names and types with memory addresses which have special functions or values. For example addresses of PIAREMs, X-Pad, 80 coulmn cards, RS-232 cards or other interface devices which have control or status registers, may be given BASIC variable names. A common type of "trick" is to declare the memory used by video displays or graphics memory to be declared as a BASIC array. 
+2. To assign specific variable names and types with memory addresses which have special functions or values. For example addresses of PIA's, X-Pad, 80 coulmn cards, RS-232 cards or other interface devices which have control or status registers, may be given BASIC variable names. A common type of "trick" is to declare the memory used by video displays or graphics memory to be declared as a BASIC array. 
 3. The BASE statement can assign locations to specific variables without disrupting the normal internal data address pointer, and then allow normal allocation to resume by assigning a value of zero to the `BASE` pointer (`BASE=OOOO`). The `BASE` statement can also be used for allocating all variable storage by simply setting the location at the beginning of the program and us i ng only the BASE pointer for variable allocation.
 
 When using the `ORG` and `BASE` statements the programmer must take care to e nsure that there are no conflicts or overlaps between program and data storage, by using assignments which are not overlapped. If the BASE statement is not used, the Compiler will automatically select the correct locations for variable storage. Sometimes it is useful to declare a variable without generating code at the time it is declared. 
@@ -1377,15 +1377,15 @@ The program may now refer to either the RS-232 port or the X-Pad registers thru 
 
 ==== REMARK Statement
 
-*Syntax*: `REM`  or `{rem}` _followed by comment text_
+*Syntax*: `REM`  or `'` _followed by comment text_
 
-The `REM` statement is used to insert comments in the BASIC source program. The first three letters must be `REM` or the first character is a single quote `{rem}`. All characters following the `REM` or single quote charadter are considered to be comments until an end of line or until a colon `:` character is reached.  
+The `REM` statement is used to insert comments in the BASIC source program. The first three letters must be `REM` or the first character is a single quote {rem}. All characters following the `REM` or single quote charadter are considered to be comments until an end of line or until a colon `:` character is reached.  
 
 [TIP]
 The `REM` statement does not affect the object program size or speed as it does not generate any code. 
 
 Examples:: `REM This is a comment`  +
-           `{rem} ALSO A COMMENT` 
+           `' IS ALSO A COMMENT`
 
 
 ==== TRACE 
@@ -1418,9 +1418,9 @@ Example :: `MODULE`
 
 === I/O Structure Changes
 
-{cb} extensivly changes the I/O structure of the CoCo-3 to add support for the RS-232 port and to improve interrupt handling in 64K modes of operation. Because of these changes, a compiled porgram automatically re-vectors several {ecb} hooks. The program automatically inserts its own vectors in these locations and preserves the old vector information. The program will automatically restore these vectors when the compiled porgram is exited via an `END`, `STOP` or `CHAIN` command. This is important to remember when using more than one compiled program in memory at the same time or using the `LOAD`M & `EXEC` commands to execute another {cb} program, since the second or third program will also re-vector these hooks. 
+{cb} extensivly changes the I/O structure of the CoCo-3 to add support for the RS-232 port and to improve interrupt handling in 64K modes of operation. Because of these changes, a compiled porgram automatically re-vectors several {ecb} hooks. The program automatically inserts its own vectors in these locations and preserves the old vector information. The program will automatically restore these vectors when the compiled porgram is exited via an `END`, `STOP` or `CHAIN` command. This is important to remember when using more than one compiled program in memory at the same time or using the `LOADM` & `EXEC` commands to execute another {cb} program, since the second or third program will also re-vector these hooks. 
 
-If the current program was not un-linked before exiting, un-predictable results will occur. The same problem will exist if you try to exit a compiled program into another machine language program or into basic using a `CALL` or `EXEC` statement. We have Lherefore provided two additional commands to allow you to manually Link or `Unlink` the {cb} program.
+If the current program was not un-linked before exiting, un-predictable results will occur. The same problem will exist if you try to exit a compiled program into another machine language program or into basic using a `CALL` or `EXEC` statement. We have Therefore provided two additional commands to allow you to manually `LINK` or `UNLINK` the {cb} program.
 
 ==== UNLINK 
 
@@ -1454,7 +1454,7 @@ _Example:_
 Used for arithmetic assignments.  The expression is evaulated and the result is stored in the variable. 
 
 [TIP]
-Use of the keyword LET is optional.
+Use of the keyword `LET` is optional.
 
 ==== LET (string) 
 
@@ -1496,7 +1496,7 @@ _Example 1:_
 [source, bbcbasic]
 ----
 10 DATA 7,Sun,Mon,Tue,Wed,Thur,Fri,Sat
-20 READ N : REMread # of items of data
+20 READ N : REM read # of items of data
 30 FOR I = 1 TO N
 40 READ A$(I) : NEXT 
 ----
@@ -1754,16 +1754,16 @@ Also note that we recommend that only simple commands be used within an Interrup
 
 The `ON` _Interrupt_ commands allow you to do real time processing based on interrupt conditions. The *Keyboard*, *Timer* and *Serial* data interrupts are not normally enabled (or even available in Basic) and must be enabled via the `IRQ` statements after each time the interrupt occurs. If enabled, and one of these interrupts occur, the detected interrupt type will be disabled from re-occuring until an `IRQ=` statement is used to re-enable them. The reason for this automatic disable feature is that an interrupt may be processed continuiously in error. For instance if a *Keyboard* interrupt is detected and processed, the *Return from Interrupt* is executed and the Key is still pressed on the keyboard (Guaranteed). Which means that the Keyboard interrupt would be processed possibly thousands of times for a single key stroke.
 
-A *Keyboard* interrupt can be generated by any key on the keyboard if the data line from the keyboard *PIA ($FF02)* output is at a zero level for that key column. For example,  to enable all keys for interrupt detection you would poke a "00" value at *$FF02*, or to enable the key column with kbd:[ENTER] kbd:[@]  kbd:[H] kbd:[P] kbd:[X] kbd:[O] kbd:[8] keys you would poke a "01" at *$FF02*. Also, at any time an `INKEY`, `INPUT` or other command that causes a keyboard scan (`PRINT` with `PAUSE` enabled) will change the value of *$FF02*. A good way to process a Keyboard interrupt is to simply set a flag variable and let the *main* program do the acutal *Key* scan with an `INKEY` and then re-enable the `KBDIRQ` when a key is no longer pressed. The `KBDIRQ` function should be disabled when using normal `INKEY`, `INPUT`and `GETCHAR` commands from the keyboard by using the `IRQ=` statement before attempting keyboard input.
+A *Keyboard* interrupt can be generated by any key on the keyboard if the data line from the keyboard *PIA ($FF02)* output is at a zero level for that key column. For example,  to enable all keys for interrupt detection you would poke a "00" value at *$FF02*, or to enable the key column with kbd:[ENTER] kbd:[@]  kbd:[H] kbd:[P] kbd:[X] kbd:[O] kbd:[8] keys you would poke a "01" at *$FF02*. Also, at any time an `INKEY`, `INPUT` or other command that causes a keyboard scan (`PRINT` with `PAUSE` enabled) will change the value of *$FF02*. A good way to process a Keyboard interrupt is to simply set a flag variable and let the *main* program do the acutal *Key* scan with an `INKEY` and then re-enable the `KBDIRQ` when a key is no longer pressed. The `KBDIRQ` function should be disabled when using normal `INKEY`, `INPUT` and `GETCHAR` commands from the keyboard by using the `IRQ=` statement before attempting keyboard input.
 
 A *Serial* data interrupt is generated when the RS-232 input data line on the computer goes from a zero state to a one state (serial data bit= l or printer status goes to not ready). It can not be used to detect a start bit for serial data since it is a one to zero transition which makes the Serial data interrupt of little value for Serial communications.
 
 [NOTE]
 It may become more useful in an future revision of the Coco3 if it becomes programmable by changing the inverter gate used to an Exclusive or gate with one input tied to one of the pia output lines (hint to R.S.). Until then it works basically the same as the `KBDIRQ` in that once detected it is disabled until re-enabled by use of the `IRQ=` statement.
 
-A *Timer* interrupt is generated by the 12 bit programmable timer built into the GIMI chip (in case you didnREMt know). The *Timer* register at address *$FF94* & *$FF95* is loaded with a value least significant byte first *($FF95)*, with the count automatically beginning when the most significant byte *($FF94)* is loaded. As the count falls thru zero, an interrupt is generated (if enabled), and the count is automatically reloaded. As with the Keyboard & Serial interrupts, the *Timer* interrupt is disabled until re-enabled by the `IRQ=` statement. You can select the input clock to be either 63 micro seconds or 70 nano seconds by the *TINS* input *(bit 5 of $FF91)*. Default is the 70 nsec clock and we do not recommend that you fool with it since that register also controls the Memory Managment Unit Task Register Select, which if changed at the wrong time can crash the system instantly and it is not a readable register (so you never can tell whether the *TR* bit or *TINS* bit is *On* or *Off*. 
+A *Timer* interrupt is generated by the 12 bit programmable timer built into the GIMI chip (in case you didn't know). The *Timer* register at address *$FF94* & *$FF95* is loaded with a value least significant byte first *($FF95)*, with the count automatically beginning when the most significant byte *($FF94)* is loaded. As the count falls thru zero, an interrupt is generated (if enabled), and the count is automatically reloaded. As with the Keyboard & Serial interrupts, the *Timer* interrupt is disabled until re-enabled by the `IRQ=` statement. You can select the input clock to be either 63 micro seconds or 70 nano seconds by the *TINS* input *(bit 5 of $FF91)*. Default is the 70 nsec clock and we do not recommend that you fool with it since that register also controls the Memory Managment Unit Task Register Select, which if changed at the wrong time can crash the system instantly and it is not a readable register (so you never can tell whether the *TR* bit or *TINS* bit is *On* or *Off*. 
 
-The normal `IRQ` interrupt is generated every 1/60th of a second by the vertical retrace interrupt in the computer (the same as the Coco 1 & 2), and is used for the *TIMER* value increment as well as `Sound` and `Play` commands for timing. The `ON IRQ` statement will be executed if any `IRQ` interrupt is generated including *KBD*, *Serial* or *Timer* if a handler is not set up for that particular interrupt by an `ON TMRIRQ`/`KBDIRQ`/`SERIRQ` statement. Essentially it is a catch all interrupt handler. The 1/60th second interrupt is never disabled automatically like the other interrupts, so it will occur continuously unless disabled by some other means. Since this is a normal interrupt function, {cb} will automatically handle the interrupt even if you do not have and `ON IRQ` handler setup, so donREMt think you have to have one in a {cb} program, as you actually donREMt.
+The normal `IRQ` interrupt is generated every 1/60th of a second by the vertical retrace interrupt in the computer (the same as the Coco 1 & 2), and is used for the *TIMER* value increment as well as `SOUND` and `PLAY` commands for timing. The `ON IRQ` statement will be executed if any `IRQ` interrupt is generated including *KBD*, *Serial* or *Timer* if a handler is not set up for that particular interrupt by an `ON TMRIRQ`/`KBDIRQ`/`SERIRQ` statement. Essentially it is a catch all interrupt handler. The 1/60th second interrupt is never disabled automatically like the other interrupts, so it will occur continuously unless disabled by some other means. Since this is a normal interrupt function, {cb} will automatically handle the interrupt even if you do not have and `ON IRQ` handler setup, so don't think you have to have one in a {cb} program, as you actually don't.
 
 A few points to remember are that *ALL* interrupt handling subroutines must end with a `RETI` statement or you will have a crashed system. If you wish to disable one of the interrupt handlers that have already been in use, then use the same statement without a _line#_. 
 
@@ -1790,7 +1790,7 @@ The `IRQ=` statement is used to selectively enable or disable *GIME* interrupt c
 |===
 
 [WARNING]
-These values are *ORREMd* together and stored in location *$FF92 IRQ* or *$FF92 FIRQ*
+These values are *OR'd* together and stored in location *$FF92 IRQ* or *$FF92 FIRQ*
 
 If you wanted to enable the *Keyboard* and *Timer* interrupts you would use a value of 34 (2 for the `KBD` + 32 for the `Timer`). If you are working with more than one interrupt, you should keep a variable with the value of all interrupt conditions and use bit operators like *AND (&)* and *OR (!)* to set and reset the bits to be enabled.
 
@@ -1887,7 +1887,7 @@ Examples:: `BASE=$8000` +
 
 The preceding examples demonstrate how easy it is to  assign variables to the upper 32K of RAM. The two string arrays `A1$` and `A2$` occupy 28,750 bytes and the numeric array AZ occupys 3200 bytes of RAM. The `BASE` pointer is then restored to zero to allow any further variables to be assigned address space immediately following the program. 
 
-The `RAM64K` statement for {cb} allows you to select any 32K bank of memory to be used in place of the upper 32K of memory where Basic normally resides. In the CoCo-3 you are normally in the *ALL RAM* mode and a modified image of the Basic ROMREMs is stored there and used for I/O calls and some other functions in a {cb} program. 
+The `RAM64K` statement for {cb} allows you to select any 32K bank of memory to be used in place of the upper 32K of memory where Basic normally resides. In the CoCo-3 you are normally in the *ALL RAM* mode and a modified image of the Basic ROM's is stored there and used for I/O calls and some other functions in a {cb} program. 
 
 You can still use the upper portion of memory $8OOO-$FDFF for variable storage etc, but with a twist. You must tell {cb} what the starting page# is for the 32K bank of memory you want to use in the upper 32K area to replace the Basic ROM code. This means that you can select any 32K block of ram available in the machine to be access as the upper 32K, which gives you about 420K of storage space if desired. 
 
@@ -1904,9 +1904,9 @@ Examples::  `RAM64K 48` +
 
 *Syntax* : `RAM` <ON/OFF> 
 
-The `RAM` statement allows manual control of the upper 32K of memory space address mode. The `RAM ON` statement, switches the Basic ROMREMs off and enables access to the upper 32K of RAM (normal CoCo-3 mode) which normally contains a modified image of the Basic ROMREMs. The `RAM OFF` statement does just the opposite, it disables the upper 32K of RAM and enables the Basic ROMREMs to occupy the upper 32K of address space. 
+The `RAM` statement allows manual control of the upper 32K of memory space address mode. The `RAM ON` statement, switches the Basic ROM's off and enables access to the upper 32K of RAM (normal CoCo-3 mode) which normally contains a modified image of the Basic ROM's. The `RAM OFF` statement does just the opposite, it disables the upper 32K of RAM and enables the Basic ROM's to occupy the upper 32K of address space. 
 
-These two statements can be useful when `RAM64K` is not being used and access to some part of the Basic ROMREMs is needed, you simply enable the ROMREMs with a `RAM OFF` statement and when finished, restore to the `RAM64K` mode by using a RAM ON statement. These statements can be used whether or not the `RAM64K` statement has been used to allow accessing these areas of memory. When using the `RAM ON/OFF` option, it is necessary to either mask interrupts with the `IRQ ON` statement or provide `ON IRQ` and `ON FIRQ` interrupt handling.
+These two statements can be useful when `RAM64K` is not being used and access to some part of the Basic ROM's is needed, you simply enable the ROM's with a `RAM OFF` statement and when finished, restore to the `RAM64K` mode by using a RAM ON statement. These statements can be used whether or not the `RAM64K` statement has been used to allow accessing these areas of memory. When using the `RAM ON/OFF` option, it is necessary to either mask interrupts with the `IRQ ON` statement or provide `ON IRQ` and `ON FIRQ` interrupt handling.
 
 ==== LPCOPY 
 
@@ -2138,7 +2138,7 @@ The first example will set a dot in the top left corner of the screen and the 2n
 The `PRESET` statement does the exact opposite of the `PSET` statement. It "resets" a dot in the screen to the background color. The _x_ and _y _arguments are used to specify exactly which dot on the screen is to be reset. 
 
 [TIP]
-You donREMt have to specify the color with PRESET since the computer automatically uses the background color.
+You don't have to specify the color with PRESET since the computer automatically uses the background color.
 
 Examples: `PRESET(l28,96)` +
 `PRESET(Xl,Yl)`
@@ -2233,13 +2233,13 @@ The sample program will draw a circle in the center of the screen and paint in o
 
 The `CIRCLE` statement will allow you to create a full circle, a partial circle or an ellipse using a single Basic statement.
 
-The only arguments required to make a circle are the center point coordinates _(x,y)_ and a radius "r", all other arguments are optional. The radius "r" specifies the circleREMs radius in units from 0 to 255, each unit of measurement is equal to one point on the screen. 
+The only arguments required to make a circle are the center point coordinates _(x,y)_ and a radius "r", all other arguments are optional. The radius "r" specifies the circle's radius in units from 0 to 255, each unit of measurement is equal to one point on the screen. 
 
 The optional "color" specifies an available color 0-8, default is the foreground color. 
 
-The height/width ratio "hw" is optional, it specifies the ratio or the circleREMs "width" to itREMs "heigth", if not specified, a value of 256 is used (1:1). A value less than 256 results in a circle "wider" than it is high, a value over 256 results in a circle "Higher" than it is wide.
+The height/width ratio "hw" is optional, it specifies the ratio or the circle's "width" to it's "heigth", if not specified, a value of 256 is used (1:1). A value less than 256 results in a circle "wider" than it is high, a value over 256 results in a circle "Higher" than it is wide.
 
-The start & end options allow you to draw just part of a circle (an arc). To use this option, specify the point where the arc is to begin (0-255), insert a comma, and then the point where it is to end (0 - 255). The starting point (0) for any circle is equivalent to 3 oREMclock on a clock, 64 would be 6 oREMclock, 128 would be 9 oREMclock and 192 would be 12 oREMclock. To use the start and end options, you must specify the "hw" ratio, for a normal arc, use *hw=256*. 
+The start & end options allow you to draw just part of a circle (an arc). To use this option, specify the point where the arc is to begin (0-255), insert a comma, and then the point where it is to end (0 - 255). The starting point (0) for any circle is equivalent to 3 o'clock on a clock, 64 would be 6 o'clock, 128 would be 9 o'clock and 192 would be 12 o'clock. To use the start and end options, you must specify the "hw" ratio, for a normal arc, use *hw=256*. 
 
 [TIP]
 For more information on the CIRCLE statement, refer to the Extended Color Basic Manual.
@@ -2249,7 +2249,7 @@ Examples::  `CIRCLE(128,92),95` +
 `CIRCLE(X1,Y1),30,1,HW,ST,EN`
 
 [NOTE]
-The first example demonstrates a simple circle drawn at the center of the screen. The second example demonstrates the use of all options to draw a half circle from 6 oREMclock (64) to 12 oREMclock (192). The last example is similar except some variables are used instead of constants.
+The first example demonstrates a simple circle drawn at the center of the screen. The second example demonstrates the use of all options to draw a half circle from 6 o'clock (64) to 12 o'clock (192). The last example is similar except some variables are used instead of constants.
 
 [WARNING]
 Please note that the "hw", "start" and "end" arguments in {cb}differ from those in Color Basic since they are fractional numbers. If these items are specified as constants in the `CIRCLE` statement the normal Color Basic decimal format will be accepted by the compiler. When variables are used, the values assigned to the them must conform to the specifications listed above for "hw", "start" and "end".
@@ -2312,7 +2312,7 @@ After an "Sx" command, all motion commands will be scaled accordingly until the 
 The Mode command "Ax" allows you to specify the angle at which a line is to be drawn, 0 = 0 degrees, 1 = 90 degrees, 2 = 180 degrees, and 3 = 270 degrees.  All lines drawn following an Ax command will be drawn relative to the angle displacement specified by Ax.
 
 
-The option "BREMREM blank, has already been mentioned in relation to the Move command. It can also be used to prescede any motion command to cause a blank line to be drawn. This only affects the line immediately following the "B" blank option.
+The option "B" blank, has already been mentioned in relation to the Move command. It can also be used to prescede any motion command to cause a blank line to be drawn. This only affects the line immediately following the "B" blank option.
 
 The option "N" can be used to tell the computer •not" to update the _x,y_ location after drawing a line, but to return to the current _x,y_ location before doing the next command. This only affects the conuuand immediately following it. 
 
@@ -2331,7 +2331,7 @@ The first example moves the draw position to the center of the screen 128,96 and
 
 The `GET` and `PUT` statements are used to "get" a rectangular area which contains a graphics display, store it in an array, then "put" the array back on the screen at a later time. The _xl,yl_ and _x2,y2_ coordinates are used to tell the computer where the upper left corner and lower right corner of the rectangular graphics area is located on the screen to `GET` or `PUT`. 
 
-The "destination" for `GET` is the name of a pre-defined numeric array that will be used to store the rectangleREMs contents. The "G" parameter for GET is optional, but if used specifies that the rectangle will be stored in the array with "Full GRAPHIC" detail.
+The "destination" for `GET` is the name of a pre-defined numeric array that will be used to store the rectangle's contents. The "G" parameter for GET is optional, but if used specifies that the rectangle will be stored in the array with "Full GRAPHIC" detail.
 
 The "source" parameter for the `PUT` statement is the name of a pre-defined numeric array that contains the data or previously stored `GET` rectangle, that is to be written to the display. The "options" for the `PUT` statement determine how the data is to be written to the display. They consist of the following:
 
@@ -2395,7 +2395,7 @@ Pause-length:: The letter "P" followed by a numeral from 1 to 255 is used to rep
 
 Execute string:: The letter "X" followed by the name of the string variable is used to instruct the computer to "PLAY" the contents of the string variable and then continue in the present string.
 
-Dotted notes:: The "Period" character".REMREM is used following notes to instruct the computer to increase the length of  the note by one half of its normal value. If several "dots" are added to a note, each one will increase its note length by 1/2 its normal value.
+Dotted notes:: The "Period" character". It is used following notes to instruct the computer to increase the length of  the note by one half of its normal value. If several "dots" are added to a note, each one will increase its note length by 1/2 its normal value.
 
 Suffixes:: There are four suffix characters that can be used to alter the values for Octave "O", Volume "V",
 Tempo "T" and Note length "L". The suffixes can be used to adjust the values of these commands without having to add numbers.
@@ -2481,7 +2481,7 @@ the foreground and background colors from the 1st example. The third example sho
 *Syntax* : `HSCREEN` _value_
 
 The `HSCREEN` statement is used to select between the Text or Enhanced Hi-Res Graphics modes (320/640 modes). When this command
-is used it will automatically clear the Hi-Res screen. If you donREMt want the screen to clear use the `HMODE` comman
+is used it will automatically clear the Hi-Res screen. If you don't want the screen to clear use the `HMODE` comman
 
 Examples:: `HSCREEN 1` +
 `HSCREEN 4` +
@@ -2594,13 +2594,13 @@ The sample program will draw a circle in the center of the screen and paint in o
 
 The `HCIRCLE` statement will allow you to create a full circle, a partial circle or an ellipse using a single Basic statement.
 
-The only arguments required to make a circle are the center point coordinates _(x,y)_ and a radius "r", all other arguments are optional. The radius "r" specifies the circleREMs radius in units from 0 to 255, each unit of measurement is equal to one point on the screen. 
+The only arguments required to make a circle are the center point coordinates _(x,y)_ and a radius "r", all other arguments are optional. The radius "r" specifies the circle's radius in units from 0 to 255, each unit of measurement is equal to one point on the screen. 
 
 The optional "color" specifies an available color 0-8, default is the foreground color. 
 
-The height/width ratio "hw" is optional, it specifies the ratio or the circleREMs "width" to itREMs "heigth", if not specified, a value of 256 is used (1:1). A value less than 256 results in a circle "wider" than it is high, a value over 256 results in a circle "Higher" than it is wide.
+The height/width ratio "hw" is optional, it specifies the ratio or the circle's "width" to it's "heigth", if not specified, a value of 256 is used (1:1). A value less than 256 results in a circle "wider" than it is high, a value over 256 results in a circle "Higher" than it is wide.
 
-The start & end options allow you to draw just part of a circle (an arc). To use this option, specify the point where the arc is to begin (0-255), insert a comma, and then the point where it is to end (0 - 255). The starting point (0) for any circle is equivalent to 3 oREMclock on a clock, 64 would be 6 oREMclock, 128 would be 9 oREMclock and 192 would be 12 oREMclock. To use the start and end options, you must specify the "hw" ratio, for a normal arc, use *hw=256*. 
+The start & end options allow you to draw just part of a circle (an arc). To use this option, specify the point where the arc is to begin (0-255), insert a comma, and then the point where it is to end (0 - 255). The starting point (0) for any circle is equivalent to 3 o'clock on a clock, 64 would be 6 o'clock, 128 would be 9 o'clock and 192 would be 12 o'clock. To use the start and end options, you must specify the "hw" ratio, for a normal arc, use *hw=256*. 
 
 [TIP]
 For more information on the CIRCLE statement, refer to the Extended Color Basic Manual.
@@ -2610,7 +2610,7 @@ Examples::  `HCIRCLE(128,92),95` +
 `HCIRCLE(X1,Y1),30,1,HW,ST,EN`
 
 [NOTE]
-The first example demonstrates a simple circle drawn at the center of the screen. The second example demonstrates the use of all options to draw a half circle from 6 oREMclock (64) to 12 oREMclock (192). The last example is similar except some variables are used instead of constants.
+The first example demonstrates a simple circle drawn at the center of the screen. The second example demonstrates the use of all options to draw a half circle from 6 o'clock (64) to 12 o'clock (192). The last example is similar except some variables are used instead of constants.
 
 [WARNING]
 Please note that the "hw", "start" and "end" arguments in {cb}differ from those in Color Basic since they are fractional numbers. If these items are specified as constants in the `HCIRCLE` statement the normal Color Basic decimal format will be accepted by the compiler. When variables are used, the values assigned to the them must conform to the specifications listed above for "hw", "start" and "end".
@@ -2686,7 +2686,7 @@ After an "Sx" command, all motion commands will be scaled accordingly until the 
 The Mode command "Ax" allows you to specify the angle at which a line is to be drawn, 0 = 0 degrees, 1 = 90 degrees, 2 = 180 degrees, and 3 = 270 degrees.  All lines drawn following an Ax command will be drawn relative to the angle displacement specified by Ax.
 
 
-The option "BREMREM blank, has already been mentioned in relation to the Move command. It can also be used to precede any motion command to cause a blank line to be drawn. This only affects the line immediately following the "B" blank option.
+The option "B" blank, has already been mentioned in relation to the Move command. It can also be used to precede any motion command to cause a blank line to be drawn. This only affects the line immediately following the "B" blank option.
 
 The option "N" can be used to tell the computer •not" to update the _x,y_ location after drawing a line, but to return to the current _x,y_ location before doing the next command. This only affects the conuuand immediately following it. 
 
@@ -2704,7 +2704,7 @@ The first example moves the draw position to the center of the screen 128,96 and
 
 The `HGET` and `HPUT` statements are used to "GET" a rectangular area which contains a graphics display, store it in a buffer, then "PUT" the buffer back on the screen at a later time. The _xl,yl_ and _x2,y2_ coordinates are used to tell the computer where the upper left corner and lower right corner of the rectangular graphics area is located on the screen to `HGET` or `HPUT`. 
 
-The "destination" for `HGET` is the name of a pre-defined `HBUFF` that will be used to store the rectangleREMs contents. 
+The "destination" for `HGET` is the name of a pre-defined `HBUFF` that will be used to store the rectangle's contents. 
 
 The "options" for the `HPUT` statement determine how the data is to be written to the display. They consist of the following:
 
@@ -2812,11 +2812,11 @@ Examples::  `LINEINPUT A$` +
 `PRINT @N` _,output spec(,;] output spec_ +
 `PRINT #N` _,output spec(,;]... output spec_
 
-The `PRINT` statement is used to output information to the screen, printer, RS-232 port, tape or disk. The output specREMs are processed and the appropriate characters are put in the I/O buffer. The buffer is then output to the proper device.
+The `PRINT` statement is used to output information to the screen, printer, RS-232 port, tape or disk. The output spec's are processed and the appropriate characters are put in the I/O buffer. The buffer is then output to the proper device.
 
-The output specREMs may consist of string or numeric expressions, or the output function TAB(expr) which inserts spaces in the buffer until the position "expr" is reached. Each item in the list is separated by a delimiter which is either a comma or semicolon. The buffer is divided into thirty-two 8 character zones, which are effectively tab stops every eighth position. If a comma is used as a delimiter, the next item will begin at the first position of the next zone. 
+The output spec's may consist of string or numeric expressions, or the output function TAB(expr) which inserts spaces in the buffer until the position "expr" is reached. Each item in the list is separated by a delimiter which is either a comma or semicolon. The buffer is divided into thirty-two 8 character zones, which are effectively tab stops every eighth position. If a comma is used as a delimiter, the next item will begin at the first position of the next zone. 
 
-If a semicolon is used, NO spacing will occur. A semicolon at the end of a `PRINT` statement will inhibit the printing of a carriage/return at the end of the line. A `PRINT` statement without any output specREMs will produce a carriage return only.
+If a semicolon is used, NO spacing will occur. A semicolon at the end of a `PRINT` statement will inhibit the printing of a carriage/return at the end of the line. A `PRINT` statement without any output spec's will produce a carriage return only.
 
 The `PRINT` statement can optionally be followed by the "#" pound sign and a number or numeric variable to direct out put to a device other than the screen. If output is attempted to tape or disk, a file must have been previously "opened" for output or an error condition will occur. This can be detected at run- time by the `ON ERROR GOTO` statement. For more information refer to the section on TAPE & DISK I/O.
 
@@ -2918,7 +2918,7 @@ Examples:: `GETCHAR #-3,A` +
 
 Disk and Tape I/O in {cb} is channel oriented meaning a file to be used for input or output must be "opened" and assigned a channel number by which all further operations on that file are performed. {cb} supports up to 9 Disk channels (l-9) and 1 tape channel (-1), which are maximum number of files that may be open at any time.
 
-All disk and tape file names are defined the same as the normal Basic operating systemREMs. All files used by {cb} are standard ASCII formatted data files.
+All disk and tape file names are defined the same as the normal Basic operating system's. All files used by {cb} are standard ASCII formatted data files.
 
 Many of the {cb} disk and tape operations are the same as the normal Basic, so information as to disk and tape operations in the Basic Reference manuals will generally apply.
 
@@ -2967,7 +2967,7 @@ Examples:: `10 OPEN "I",#2,"LABLES.TXT:1"` +
 `610 OPEN"I",#-1,"DATABASE"`
 
 [NOTE]
-The first example shows that a sequential input file (file #2) is to be opened on drive #1, and the file will be called "LABEL.TXT". The second example shows a Random access file (#1) will be opened on drive #2, and the file name is "DATABS.DAT" (itREMs record length is 128 bytes). The third example will open the Tape file "DATABASE" for input.
+The first example shows that a sequential input file (file #2) is to be opened on drive #1, and the file will be called "LABEL.TXT". The second example shows a Random access file (#1) will be opened on drive #2, and the file name is "DATABS.DAT" (it's record length is 128 bytes). The third example will open the Tape file "DATABASE" for input.
 
 [TIP]
 When a Random access file is opened and the file is not on the specified disk drive, or does not exist, a file will be created with no data in it. If a file is to be opened for Input and does not exist, an error will be reported. If a file is to be opened for Output and already exists on the disk, it will automatically be "KILLED" or Scratched and no warning or message will be displayed.
@@ -3125,7 +3125,7 @@ When the `FIELD` statement associates a string variable with an record buffer in
 _Example1_
 [source, bbcbasic]
 ----
-10 OPEN "R",#1, REMREM:l TESTER. TXTREMREM,64
+10 OPEN "R",#1,"TESTER.TXT",64
 20 FIELD #1,32 AS A$,32 AS BS
 30 FIELD #1,10 AS IT$,12 AS VN$,20 AS DI$,22 AS CO$
 ----
@@ -3157,7 +3157,7 @@ _Example_
 ----
 10 FIELD *l,10 AS A$,10 AS BS
 20 LSET A$="TESTING"
-30 RSET B$=REMREMFIELDSET"
+30 RSET B$="FIELDSET"
 40 LSET B$=STRING$(10,32)
 ----
 
@@ -3185,7 +3185,7 @@ _Example_
 30 REM INITALIZE SPECIFIED NUMBER OF RECORDS
 40 FIELD #1,INITALIZE$ AS 128
 50 LSET INITALIZE$="EMPTY RECORD"
-60 PUT #1,RECORD:REMREM ALLOCATE RECORD SPACE
+60 PUT #1,RECORD:' ALLOCATE RECORD SPACE
 70 FOR I = 1 TO RECORD
 80 PUT #1,I
 90 NEXT I
@@ -3400,7 +3400,7 @@ Even though a {cb} program may be designed to perform the same function as a typ
 30 NEXT
 ----
 
-If the above program is run under Color Basic you would simply see it display the number from 1 thru 10 on the screen. It would then display an "OK" message and stop. The same program compiled under {cb} may appear to execute differently, even though it doesnREMt. If you watch the screen very carefully, and donREMt blink your eyes when executing the compiled version of the same version program. You will see that it will also display the numbers from 1 thru 10 on the screen, however, it disappears almost immediately after displaying the numbers. The next thing you see is the Color Basic message, just like you do when you first power on the computer.
+If the above program is run under Color Basic you would simply see it display the number from 1 thru 10 on the screen. It would then display an "OK" message and stop. The same program compiled under {cb} may appear to execute differently, even though it doesn't. If you watch the screen very carefully, and don't blink your eyes when executing the compiled version of the same version program. You will see that it will also display the numbers from 1 thru 10 on the screen, however, it disappears almost immediately after displaying the numbers. The next thing you see is the Color Basic message, just like you do when you first power on the computer.
 
 One of the reasons for this is, {cb} produces pure Machine Language programs, and under some circumstances it modifies the configuration of the normal Color Basic operating system. If the program were simply allowed to return control back to the Color Basic Operating System, it may "appear" to work ok.
 
@@ -3412,13 +3412,13 @@ If you need to see the results of a programs display on the screen before the pr
 
 === Remark Statements
 
-With {cb} programs, the `REM`or `REM` statements do not affect the compiled program size or execution speed in any way. They do not produce any code within the compiled program. By using REMark statements generously, it will enable you to improve the internal documentation and readability of your program, without affecting itREMs performance. It pays to write well documented programs that can be understood and modified easily, either by yourself or others.
+With {cb} programs, the `REM`or `'` statements do not affect the compiled program size or execution speed in any way. They do not produce any code within the compiled program. By using REMark statements generously, it will enable you to improve the internal documentation and readability of your program, without affecting it's performance. It pays to write well documented programs that can be understood and modified easily, either by yourself or others.
 
 === Graphic Statements
 
 {cb} has the same Graphics Statements that are available in Extended Color Basic, and consequently {cb} uses many of the graphics subroutines available within the Extended Basic ROM.
 
-Since {cb} uses the same machine language code to generate the same functions as Color Basic the actual time to draw or display the graphics is the same. However in a {cb} program, the same Graphics statement will execute about 4 times faster than Extended Color Basic. We probably could have made it much faster by rewriting the run-time graphics package but the cost i n memory would be tremendous, and the Graphics syntax would not be compatible or as extensive as Extended Color BasieREMs. The reason that {cb} executes graphics faster than Color Basic is that the compiled program does not have to lookup the command and variable locations each time a graphics statment is executed, this is where the real speed increase comes from in {cb}.
+Since {cb} uses the same machine language code to generate the same functions as Color Basic the actual time to draw or display the graphics is the same. However in a {cb} program, the same Graphics statement will execute about 4 times faster than Extended Color Basic. We probably could have made it much faster by rewriting the run-time graphics package but the cost i n memory would be tremendous, and the Graphics syntax would not be compatible or as extensive as Extended Color Basic. The reason that {cb} executes graphics faster than Color Basic is that the compiled program does not have to lookup the command and variable locations each time a graphics statment is executed, this is where the real speed increase comes from in {cb}.
 
 When using Graphics statements in {cb}, if you use numeric constants for the x,y coordinates or parameters, the generated code will be shorter and execute s l ightly faster than using variables. This applies to the statements: `CIRCLE` , `LINE` , `PSET` , `PRESET` , `SCREEN` , `PMODE` , `COLOR` , `PAINT` , `PUT` and `GET`. This format will save from 8 to 20 bytes of code in the compiled program for each statement using this method. By making use of subroutines wherever possible for duplicated statements, you will also reduce a programs size significantly.
 
@@ -3446,7 +3446,7 @@ This will produce a delay of 2 seconds, if you know how many seconds you want to
 
 === Get to know your Color Computer
 
-If you have not had experience with the 6809REMs machine language, take the time to aquire some understanding of it. There are many good books and reference manuals available from Radio Shack. It is not absolutely necessary to have an understanding of machine language to use the {cb} compiler, in fact it was designed to be as compatible with the Color Basic interpreter as possible. This enables you to write and debug most programs using Color Basic, which is much easier than trying to debug machine language programs. However, many of the advanced features of {cb} can not be used in Color Basic. If you have a good understanding of how the machine works and operates, you will have much less difficulty using {cb} and its advanced features.
+If you have not had experience with the 6809's machine language, take the time to aquire some understanding of it. There are many good books and reference manuals available from Radio Shack. It is not absolutely necessary to have an understanding of machine language to use the {cb} compiler, in fact it was designed to be as compatible with the Color Basic interpreter as possible. This enables you to write and debug most programs using Color Basic, which is much easier than trying to debug machine language programs. However, many of the advanced features of {cb} can not be used in Color Basic. If you have a good understanding of how the machine works and operates, you will have much less difficulty using {cb} and its advanced features.
 
 === Debugging Compiled Programs
 
@@ -3454,7 +3454,7 @@ If your {cb} program compiles without errors, but does not perform as expected, 
 
 _Does the {cb} program overlap or conflict with another program being called?_
 
-The {cb} program listing provides you with some valuable information that can be used to find run-time errors in conjunction with the `TRACE` statement and a Monitor/Debugger program, like Cer-CompREMs TRSMON System Monitor. The statement addresses on the listing can be used to set Breakpoints at the beginning of a specific program line. The Symbol table dump at the end of the listing shows variable memory locations, that can be examined with the Monitors memory examine and change function. With this information you can tell whether or not the program is running correctly up to the point where you examined the variables.
+The {cb} program listing provides you with some valuable information that can be used to find run-time errors in conjunction with the `TRACE` statement and a Monitor/Debugger program, like Cer-Comp's TRSMON System Monitor. The statement addresses on the listing can be used to set Breakpoints at the beginning of a specific program line. The Symbol table dump at the end of the listing shows variable memory locations, that can be examined with the Monitors memory examine and change function. With this information you can tell whether or not the program is running correctly up to the point where you examined the variables.
 
 Read the Manual carefully, there is a great deal of information in this document which can make programming in {cb} easier for you. If {cb} is your first experience with a compiler, it would be wise to read this manual more than once. 
 
@@ -3922,7 +3922,7 @@ When in this mode, all `PRINT@ `screen formatting should be almost identical to 
 0007 REM The program uses a string array to store the entire
 0008 REM contents of a disk track for each read/write sequence.
 0009 REM You could use the BASE & DIM statements to put the
-0010 REM track buffer array anywhere in memory that doesnREMt
+0010 REM track buffer array anywhere in memory that doesn't
 0011 REM cause a conflict.
 0012 REM 
 0015 DIM A$(36,128):REM Setup string ARRAY for Track buffer
