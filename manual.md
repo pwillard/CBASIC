@@ -2760,7 +2760,7 @@ Example:: `BORDER 14`
 The `PALETTE` command is used to select any of the available 64 colors for a specified palette register (0-15) number. If `RGB` or `CMP` follows the `PALETTE` command it will cause the default colors for an RGB monitor or Composite monitor to be used. The `RGB` or `CMP` commands can also be used by themselves to obtain the same results.
 
 Example:: `PALETTE 3,44` +
-`PALETTE CMP`
+`PALETTE CMP` +
 `PALETTE N,C`
 
 <<< 
@@ -2906,7 +2906,7 @@ Exmamples:: `PUTCHAR #-2,A` +
 
 ==== GETCHAR
 
-*Syntax* : `GETCHAR`  _devicel, numeric variable_
+*Syntax* : `GETCHAR`  _device#, numeric variable_
 
 The `GETCHAR` command allows you to get or input a single byte of information from a specified device. In some ways it is similar to the `INKEY` statement except that when used to get a byte from the Keyboard or Serial port it will wait until a byte is received or key pressed before continuing on to the next statement. The byte returned from the command is always stored in a numeric variable as a value between 0 and 255. 
 
@@ -3099,7 +3099,7 @@ The `ERL` & `ERLIN` functions a l so works in conjunction with the `ON ERROR GOT
 
 ==== ON ERROR & ON ERR GOTO
 
-*Syntax* : `ON ERROR GOTO` _line#_
+*Syntax* : `ON ERROR GOTO` _line#_ +
 `ON ERR GOTO` _line#_
 
 The `ON ERROR` & `ON ERR` statements allows the user to handle system errors without halting the current program execution, by passing control to a specified line number in the program to process the error. These functions can be changed at any time in the program to allow for a general error handling routine, or may be changed for a specific disk error handling not covered by the general error handler. If no error handling is specified, a normal basic error display & halt will occur. Error handling for any active file may be changed at any time or disabled by specifying a "GOTO" line number of "0". This can be used for disabling the general "ON ERROR" handling as well.
@@ -3115,7 +3115,7 @@ _Example_
 
 ==== FIELD
 
-*Syntax* : `FIELD` _#F, length AS var,.... , etc._
+*Syntax* : `FIELD` _#F, length `AS` var,.... , etc._
 
 The `FIELD` command is used in conjunction with Random or Direct access files to format a disk record into specific fielded variables. By fielding a file record (buffer), the system associates specified areas in the disk file record to variables.
 
@@ -3146,7 +3146,7 @@ mailing record be defined and that the entire record length does not have to be 
 
 ==== RSET & LSET
 
-*Syntax* : `RSET` _var = expression_
+*Syntax* : `RSET` _var = expression_ +
 `SET` _var = expression_
 
 The `FIELD` statement has previously been used to assign a string variable name to a portion of the disk file record buffer.
@@ -3172,7 +3172,7 @@ Results:
 
 ==== GET & PUT
 
-*Syntax* : `GET` _#F,(RECORD #)_
+*Syntax* : `GET` _#F,(RECORD #)_ +
 `PUT` _#F,(RECORD #)_
 
 The `GET` & `PUT` statements are used in conjunction with Random or Direct access files only. They tell the system to read or write the "next" or specified record# of the designated file. The correct disk sector is computed and read into the sector buff er if necessary. The correct portion of that sector information is then transferred to or from the file record buffer. Once there by the use of a `GET` statement, the data can be manipulated or transferred from a fielded variable or assigned to a different variable by the use of an `INPUT` or `LET` statements. If a `PUT` statement is executed, the record buffer is transferred to the disk file sector buffer and written to the disk when necessary. A variable can be used to specify the file and/or record number to `PUT` or `GET`. When no record number is specified, the next record number in sequence will be used. If an attempt is made to `GET` a record that is past the end of the file, an error will be reported. If an attempt is made to PUT a record past the end of file, the file will automatically be expanded to store the record with extra space allocated for future expansion. If no disk space can be obtained for file expansion, an error will be reported.
@@ -3195,7 +3195,7 @@ _Example_
 
 [NOTE]
 This example shows a random file being opened and the
-operator being prompted for the number of records that the file is to be initialized for, when input the highest record # is written first t o expand the file. The rest of the records are then initialized in sequence via the for next loop until the highest record is re-written & the file closed.
+operator being prompted for the number of records that the file is to be initialized for, when input the highest record # is written first to expand the file. The rest of the records are then initialized in sequence via the for next loop until the highest record is re-written & the file closed.
 
 ==== CHAIN
 
@@ -3206,7 +3206,7 @@ The `CHAIN` statement allows Machine Language Disk programs to be loaded and aut
 Examples:: `10 CHAIN "BIOIA"`
 `349 CHAIN A$`
 
-The first example shows the command being used with a liLeral
+The first example shows the command being used with a literal
 string to load and begin execution of the machine language program "BIOIA.;" from drive 0 (default). The second example shows it being used in a program statement line where the variable "A$" is being used to pass the drive and file id paramaters to the disk operating system.
 
 ==== KILL
@@ -3274,7 +3274,7 @@ and the second example would be used to turn disk verification off (disabled).
 
 ==== DSKI$ & DSKO$
 
-*Syntax* : `DSKI$ drive, track, sector, A$, B$`
+*Syntax* : `DSKI$ drive, track, sector, A$, B$` +
 `DSKI$ drive, track, sector, BUF$`
 
 The DSKI$ and DSKO$ conunands are used to perform Disk Input (DSKI$) and Output (DSKO$) without the use of the Disk Operating System. These conunands input and output directly to a sector (256 bytes) on a specified disk. The drive, track and sector values can be any numbers or variables, and specify where the disk I/O is to be performed. {cb} has two options for using these conunands. Since a sector is 256 bytes and string variables can only be a maximum of 255 bytes in length, two string variables are required to hold the contents of a single sector. Each of these variables is to be 128 bytes each. If the variable names specified in the command are not previously used in the program, {cb} will automatically create two consecutive variables of the required length. If the variable names were previously used in the program, they must be a minimum of 128 bytes each or an error will be declared. The second option is to use the {cb} variable BUF$ which is the 256 byte run-time I/O buffer. If BUF$ is used, it is the only variable that is to be specified.
@@ -3295,8 +3295,8 @@ These commands may also use subscripted variables for the sector data storage, h
 ----
 
 ==== CLOADM & LOADM
-
-*Syntax* : `CLOADM` _"file name",offset`
+ 
+*Syntax* : `CLOADM` _"file name",offset` +
 `LOADM` _"file name",offset_
 
 The `CLOADM` & `LOADM` commands are identical to the Color Basic `CLOADM` & `LOADM` commands. They allows you to load Machine Language programs from cassette tape (CLOADM) or DISK (LOADM) into memory.
@@ -3308,7 +3308,7 @@ Example:: `CLOADM "TEST",$1000` +
 
 ==== CSAVEM & SAVEM
 
-*Syntax* : `CSAVEM` _"file name",begin,end,exec._
+*Syntax* : `CSAVEM` _"file name",begin,end,exec._ +
 `SAVEM` _"file name",begin,end,exec._
 
 The CSAVEM & SAVEM commands are used to save a machine language program or file in memory to either tape (CSAVEM) or Disk (SAVEM). The "file name" can be any valid string expression or string variable. The begin, end and execution addresses of the file are required and may not be omitted. They can be any valid numeric expression or variable. {cb} does not check the validity of the addresses at run-time, it is up to the programmer to check for address validity (begin not greater than end).
@@ -3407,13 +3407,15 @@ One of the reasons for this is, {cb} produces pure Machine Language programs, an
 
 But, if you started to write a program or perform some disk operation, the system might crash, destroy a disk, or some other unpredictable results might occur. In order to avoid this situation the {cb} program forces the computer to do a "Cold Start" when it is finished. This may not be necessary in all cases, but, it is the safest and most reliable way to return control back to Color Basic.  Almost all good Machine Language programs, which modify the operation of the computer in any way will perform this type of "Cold Start" when the program is finished.
 
-From looking at the previous example, it may appear that this is an un-necessary precaution. But, on the other hand, most programs will not be this simple, if they were, there really would be no reason to compile them into Machine Language programs. {cb}has a large variety of commands and functions that allow it to do many things besides straight forward Basic programs. It has the capacity to provide a complete Operating System environment for programs, not available in Color Basic. Normally these functions could only be performed by an experienced Machine Language Programmer. Things like Interrupt Handling and using the upper 32K of a 64K machine. You can easily and quickly control or manipulate Hardware Devices such as the X-PAD, DELUXE RS-232 Program PAK and various other devices available from third party vendors. In normal Color Basic operating these types of devices is slow and cumbersome. {cb}also provides you with an optional Hi-Resolution Text Display Package that is directly attached to your compiled program. With these types of advanced operations, you can not expect to be able to keep the Color Basic Operating System completely functional. Therefore it must "Cold Start" the system to insure that Color Basic is completely operational when the {cb} program is finished.
+From looking at the previous example, it may appear that this is an un-necessary precaution. But, on the other hand, most programs will not be this simple, if they were, there really would be no reason to compile them into Machine Language programs. {cb}has a large variety of commands and functions that allow it to do many things besides straight forward Basic programs. It has the capacity to provide a complete Operating System environment for programs, not available in Color Basic. Normally these functions could only be performed by an experienced Machine Language Programmer. 
+
+Things like Interrupt Handling and using the upper 32K of a 64K machine. You can easily and quickly control or manipulate Hardware Devices such as the X-PAD, DELUXE RS-232 Program PAK and various other devices available from third party vendors. In normal Color Basic operating these types of devices is slow and cumbersome. {cb}also provides you with an optional Hi-Resolution Text Display Package that is directly attached to your compiled program. With these types of advanced operations, you can not expect to be able to keep the Color Basic Operating System completely functional. Therefore it must "Cold Start" the system to insure that Color Basic is completely operational when the {cb} program is finished.
 
 If you need to see the results of a programs display on the screen before the program exits back to Color Basic, use an INPUT statement just before the STOP or END Statement. This will allow you to see the display and simply hit the "enter" key when you are finished.
 
 === Remark Statements
 
-With {cb} programs, the `REM`or `'` statements do not affect the compiled program size or execution speed in any way. They do not produce any code within the compiled program. By using REMark statements generously, it will enable you to improve the internal documentation and readability of your program, without affecting it's performance. It pays to write well documented programs that can be understood and modified easily, either by yourself or others.
+With {cb} programs, the `REM`  or `'` statements do not affect the compiled program size or execution speed in any way. They do not produce any code within the compiled program. By using REMark statements generously, it will enable you to improve the internal documentation and readability of your program, without affecting it's performance. It pays to write well documented programs that can be understood and modified easily, either by yourself or others.
 
 === Graphic Statements
 
@@ -3425,7 +3427,7 @@ When using Graphics statements in {cb}, if you use numeric constants for the x,y
 
 === Using Subroutines
 
-Since {cb} is a native compiler (generates actual machine code), each statement compiled will generate the equivalent machine code to perform that function. In many programs the same statement may be executed several times, especially in graphics programs. Each statement compiled will produce roughly the same amount of code, so even a single line which is used repeatedly in a program will produce a significantly larger program. If statements which are used repeatedly are made into subroutines and called with a `GOSUB` statement, the program size will be reduced significantly. A `GOSUB` statement only generates 3 bytes of code to call a subroutine, and to make a single statement or group of statements into a subroutine only requires that it be ended with a `RETURN` statement (1 byte of code). If this method is used to replace a single complex `I`F and/or `THEN`... `ELSE`... statement you could easily save up to 200-300 bytes of code for each occurence. A typical graphics or string statement using variables can use anywhere from 20 to 50 bytes for each occurance. So you can easily see how much memory space can be saved with little or no effect on program execution speed.
+Since {cb} is a native compiler (generates actual machine code), each statement compiled will generate the equivalent machine code to perform that function. In many programs the same statement may be executed several times, especially in graphics programs. Each statement compiled will produce roughly the same amount of code, so even a single line which is used repeatedly in a program will produce a significantly larger program. If statements which are used repeatedly are made into subroutines and called with a `GOSUB` statement, the program size will be reduced significantly. A `GOSUB` statement only generates 3 bytes of code to call a subroutine, and to make a single statement or group of statements into a subroutine only requires that it be ended with a `RETURN` statement (1 byte of code). If this method is used to replace a single complex `IF` and/or `THEN`... `ELSE`... statement you could easily save up to 200-300 bytes of code for each occurence. A typical graphics or string statement using variables can use anywhere from 20 to 50 bytes for each occurance. So you can easily see how much memory space can be saved with little or no effect on program execution speed.
 
 === Data & Generate Statements
 
@@ -3433,7 +3435,7 @@ Many Color Basic programs will use `DATA` statements to hold a machine language 
 
 === For/Next Loops & Timing
 
-Many Color Basic prorarns use FOR/NEXT loops for delays and timing. Since {cb} will execute a straight FOR/NEXT loop almost 1000 times faster it is not practical to use it for delays and timing. For example: FOR X=l TO lOOO:NEXT this statement in Color Basic will take almost 2 seconds to complete, but in {cb} is will be less than the blink of an eye. To generate accurate or consistent time delays in {cb} it is suggested you use the TIMER function, which will count up in 1/60 of a second intervals.
+Many Color Basic prorarns use `FOR/NEXT` loops for delays and timing. Since {cb} will execute a straight `FOR/NEXT` loop almost 1000 times faster it is not practical to use it for delays and timing. For example: `FOR X=1 TO 1OOO:NEXT` this statement in Color Basic will take almost 2 seconds to complete, but in {cb} is will be less than the blink of an eye. To generate accurate or consistent time delays in {cb} it is suggested you use the TIMER function, which will count up in 1/60 of a second intervals.
 
 _Example_
 
@@ -4001,6 +4003,7 @@ When in this mode, all `PRINT@ `screen formatting should be almost identical to 
 ===  Graphics Print
 
 [source, bbcbasic]
+----
 0010 OPT S,N
 0020 ORG=$6000
 0030 MODULE
