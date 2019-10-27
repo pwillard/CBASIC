@@ -1113,7 +1113,7 @@ Example:: `SWITCH1=A` +
           `SWITCH$=A$` +
           `A$="HELLO "+SWITCH$`
 
-=== STRING Processing
+=== String Processing
 
 {cb} features a complete set of string processing capabilities which allow {cb} programs to perform operations on character oriented data. Character type data is represented in {cb} in "string" form which is defined as variable length sequences of characters terminated with a null (00) character.
 
@@ -1849,7 +1849,7 @@ On interrupt handlers should use the `RETI` command to exit the routine the same
 NOTE: `LPOKE` behaves differently than {ecb} +
  `DLPOKE` is not available in {ecb}
  
- The `DPOKE` and `LPOKE` commands are used to place a single byte `LPOKE` or double byte `DLPOKE` variable or value in a specified extended memory location (00000- 7FFFF). The _page#_ value is used to select which 64K bank (0-7) is to be used. The _offset_ selects which address in the selected page to use (0 - FFFF) and the value is the data to be stored at that location. The _page_ _offset_ and _value_ can be either numeric or variables used to specify the information. When using the `LPOKE` statement only the least significant byte of the result is stored while `DLPOKE` will store the full 16 bit value.
+The `DPOKE` and `LPOKE` commands are used to place a single byte `LPOKE` or double byte `DLPOKE` variable or value in a specified extended memory location (00000- 7FFFF). The _page#_ value is used to select which 64K bank (0-7) is to be used. The _offset_ selects which address in the selected page to use (0 - FFFF) and the value is the data to be stored at that location. The _page_ _offset_ and _value_ can be either numeric or variables used to specify the information. When using the `LPOKE` statement only the least significant byte of the result is stored while `DLPOKE` will store the full 16 bit value.
 
 Examples: `DLPOKE 6,0,255` +
 `LPOKE 6,0,&HFFFF`
@@ -2548,8 +2548,6 @@ Examples:: `HCLS` +
 The first example would simply clear the screen to the background color. The second example would clear the screen with the color "cyan• (color code 6).
 
 ==== HLINE
-
-==== LINE
 
 *Syntax* : `HLINE(`_x1, y1`)-(`_x2,y2_`)`_,a,b_
 
