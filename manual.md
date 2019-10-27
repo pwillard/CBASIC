@@ -1768,6 +1768,61 @@ A few points to remember are that *ALL* interrupt handling subroutines must end 
 
 Example::  `ON KBDIRQ GOTO` instead of `ON KBDIRQ GOTO 1000`
 
+_IRQ Sample Code_
+
+[source, bbcbasic]
+----
+0005 FM=0
+0007 CLS
+0010 IRQ ON : ON IRQ GOTO 100 : IRQ=8
+0015 IRQ OFF
+0020 PRINT @100, FM
+0030 IF INKEY$="" THEN GOTO 20
+0099 END
+0100 FM=FM+1 : IRQ=8 : RETI
+----
+
+_TMRIRQ Sample Code_
+
+If in a Coco3 specific screen mode, (40 or 80 col) then the Coco2 bit would be clear.
+
+[source, bbcbasic]
+----
+0010   IRQ ON : ON TMRIRQ GOTO 100 : IRQ=32
+0020   POKE $FF95,0 : POKE $FF94,4 : IRQ OFF
+0025   POKE $FF90, $FC
+0030   TI=0
+0040   PRINT@0, "TIMER COUNT = ";TI
+0050   GOTO 40
+0100   TI=TI+1
+0110   IRQ=32
+0120   RETI
+----
+
+_TMRIRQ PMODE4 Sample Code_
+
+[source, bbcbasic]
+----
+0005 PCLEAR 4
+0007 RGB
+0010 PMODE 4,1 : SCREEN 1,0:PCLS 1
+0020 S=0
+0100 IRQ ON:ON TMRIRQ GOTO 1000:IRQ=$20:POKE $FF90,$FC
+0110 POKE $FF95,0:POKE $FF94,1:IRQ OFF
+0200 IF S>248 THEN S=0
+0210 E=S+8
+0220 CIRCLE(128,96),96,0,256,S,E
+0225 CIRCLE(128,96),96,1,256,E,S
+0230 GOTO 200
+1000 S=S+1
+1100 RETI
+----
+
+
+[TIP]
+*Community Feedback:* What the CBasic3  interrupt commands don't do for you is  the *$FF90  GIME*  register set up.  You have to poke the correct value in it to enable the *GIME* IRQs to the CPU.  The values depend on what screen mode is currently in use. To run the example code in a width32 screen mode, I did a `POKE $FF90,$FC`  in the  `ON TMRIRQ` setup section.
+
+
 ==== IRQ
 
 *Syntax*:  `IRQ =` _value_ +
@@ -1898,6 +1953,40 @@ If you want to deselect the upper 32K of memory to the normal ROM image use, `RA
 Examples::  `RAM64K 48` +
 `RAM64K $30` +
 `RAM64K 255` *Note: This last one does nothing useful.*
+
+[TIP]
+It has been noted by the user community that after examining the code more carefully  `RAM64K 255` doesn't do anything at all.  It exits the routine without changing GIME.  Any other number will change the *GIME* upper 32k map.  I suspect you can use the memory as long as a ROM routine isn't called without first doing a RAM64K 60.  Really kills the usefulness of the command to about what `LPOKE` and `LPEEK` are.  You could play with it and see if *Disk I/O* causes crash unless in normal memory map. 
+
+_Sample Code_
+
+[source, bbcbasic]
+----
+0010 RAM64K 0
+0020 BASE=$8000 : DIM BF(16000) : BASE=0
+0030 FOR A=0 TO 15999 : BF(A)=$5555 : NEXT A
+0040 RAM64K 4
+0050 FOR A=0 TO 15999 : BF(A)=$6666 : NEXT A
+0060 RAM64K 8
+0070 FOR A=0 TO 15999 : BF(A)=$7777 : NEXT A
+0080 RAM64K 60
+0100 PRINT"NORMAL GIME MAP"
+0110 GOSUB 200:GOSUB 300
+0120 RAM64K 0
+0130 CLS:PRINT"RAM64K SET TO 0"
+0140 GOSUB 200:GOSUB 300
+0150 RAM64K 4
+0160 CLS:PRINT"RAM64K SET TO 4"
+0170 GOSUB 200:GOSUB 300
+0175 RAM64K 8
+0180 CLS:PRINT"RAM64K SET TO 8"
+0190 GOSUB 200:GOSUB 300
+0195 GOTO 80
+0200 PRINT
+0210 FOR A=0 TO 10 : PRINT HEX$(BF(A)) : NEXT A
+0220 RETURN
+0300 IF INKEY$="" THEN GOTO 300
+----
+
 
 ==== RAM ON/OFF 
 
@@ -4119,6 +4208,9 @@ When in this mode, all `PRINT@ `screen formatting should be almost identical to 
 0970 INPUT"PRESS ENTER TO RETURN TO MENU";F$
 0980 RETURN
 ----
+
+
+EOF
 
 
 
