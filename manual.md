@@ -338,10 +338,14 @@ _Begin automatic line editing starting at line 100._
 
 ===== Editor Keys 
 
+Keys used while editing.
+
 .*EDIT FUNCTION KEYS*  
 [width="60%",align="center"]
 [cols="2",frame=none,grid=none]
-|=== 
+
+|===
+
 |FUNCTION                           | DEPRESS 
 
 |MOVE CURSOR RIGHT                  | kbd:[{right}] 
@@ -3808,7 +3812,9 @@ The Hi Resolution Text Package is designed to improve the standard 32*16 and `WI
 
 [width="80%",align="center"]
 [cols="20,80"frame=none,grid=none]
-|=== 
+
+|===
+
 |CHR$(n) |Function
 
 |1 |Display Black characters on a White background (Default)
@@ -3839,6 +3845,7 @@ The Hi Resolution Text Package is designed to improve the standard 32*16 and `WI
 |29 |Switch Screen format to Hi-Res or Standard 32*16.
 |30 |Turns double size characters off (default).
 |31 |Turns double size characters on.
+
 |===
 
 === Control Code Use
@@ -3869,7 +3876,9 @@ The Hi-Res Screen package allows the user to set the number of characters displa
 
 [width="80%",align="center"]
 [cols="10,40,10,40"]
+
 |===
+
 |1 |32 (192) |2 |40 (192)
 |3 |64 (192) |4 |80 (192)
 |5 |32 (225) |6 |40 (225)
@@ -3881,7 +3890,9 @@ _*_ = Default
 _Examples_
 [width="80%",align="center"]
 [cols="50,50"]
+
 |===
+
 | `PRINT CHR$(27);"5"` kbd:[ENTER]   | Set width to 32, 225 Res.
 | `PRINT CHR$(27),"64"` kbd:[ENTER]   | Set width to 64, 192 Res.
 |===
