@@ -896,7 +896,9 @@ Some examples of legal expressions:: `A*B(N,M+4)` +
         `(C<>D AND A$=B$)` OR `(C>D AND A$=D$)`
 
 <<< 
+
 === Arithmetic Functions
+
 ==== ABS(expr) 
 The absolute value of the numeric expression (-324 = 324).  The absolute value of a real number is the number of units from 0 the number is. The absolute value of 7 for example is 7 becasue it is that many units away from zero. The absolute value of -7 however is 7. So it in a way gets rid of the negative.
 
