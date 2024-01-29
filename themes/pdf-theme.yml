@@ -1,0 +1,85 @@
+extends: default
+font:
+  catalog:
+    Noto Serif:
+      normal: GEM_FONTS_DIR/notoserif-regular-subset.ttf
+      bold: GEM_FONTS_DIR/notoserif-bold-subset.ttf
+      italic: GEM_FONTS_DIR/notoserif-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/notoserif-bold_italic-subset.ttf
+    M+ 1mn:
+      normal: GEM_FONTS_DIR/mplus1mn-regular-subset.ttf
+      bold: GEM_FONTS_DIR/mplus1mn-bold-subset.ttf
+      italic: GEM_FONTS_DIR/mplus1mn-italic-subset.ttf
+      bold_italic: GEM_FONTS_DIR/mplus1mn-bold_italic-subset.ttf
+    Gothic A1:
+      normal: GothicA1-Regular.ttf
+      bold: GothicA1-Bold.ttf
+      italic: GothicA1Italic-Regular.ttf
+      bold_italic: GothicA1-BoldItalic.ttf
+    Lettering: 
+      normal: acl.ttf
+      bold: acl.ttf
+      italic: acl.ttf
+      bold_italic: acl.ttf
+    DIN:
+      normal: DIN-Regular.ttf
+      bold: DIN-Bold.ttf
+      italic: DIN-Italic.ttf
+      bold_italic: DIN-BoldItalic.ttf
+    Georgia:
+      normal: georgia.ttf
+      bold: georgiab.ttf
+      italic: georgiai.ttf
+      bold_italic: georgiaz.ttf
+    VT323A:
+      normal: VT323A-Regular.ttf
+      bold: VT323A-Regular.ttf
+      italic: VT323A-Regular.ttf
+      bold_italic: VT323A-Regular.ttf
+    Pica:
+      normal: pica.ttf
+      bold: picabold.ttf
+      italic: picaitalic.ttf
+      bold_italic: picabolditalic.ttf
+    Ubuntu:
+      normal: Ubuntu-Regular.ttf
+      bold: Ubuntu-Bold.ttf
+      italic: Ubuntu-Italic.ttf
+      bold_italic: Ubuntu-BoldItalic.ttf
+kbd_font_family: Gothic A1
+kbd_font_style: Normal
+role:
+  sample:
+    font_family: VT323A
+    font_size: 12
+    font_color: 222222
+    height: 0.5in
+base:
+  font_family: DIN
+  font_size: 10.5
+codespan:
+  font_color: b12146
+  #font_family: M+ 1mn
+  font_family: VT323A
+  button:
+  content: "[\u2009%s\u2009]"
+  font_style: bold
+  font_size: 14
+code:
+  font_color: $base_font_color
+  font_family: $literal_font_family
+  font_size: ceil($base_font_size)
+  padding: $code_font_size
+  line_height: 1.25
+  background_color: f5f5f5
+  border_color: cccccc
+  border_radius: $base_border_radius
+  border_width: 0.75
+conum:
+  #font_family: M+ 1mn
+  font_family: VT323
+  font_color: $literal_font_color
+  font_size: $base_font_size
+  line_height: 4 / 3
+
+
